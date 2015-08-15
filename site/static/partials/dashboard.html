@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row glance-row" ng-controller="github">
+    <div class="col-md-4 glance-col">
+      <div class="glance-box">
+        <div class="glance-github-title">
+          Repositories: {{org.name}} <div class="pull-right glance-github-repos-total">{{reposFromOrgList.length}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 glance-col">
+      <div class="glance-box">
+        <div class="glance-github-title">
+          Pull Requests: {{org.name}} <span class="pull-right glance-github-pulls-total">{{pullRequestsFromOrgList.length}}</span>
+        </div>
+        <div ng-repeat="pr in pullRequestsFromOrgList">
+          <pull-request pr="pr"></pull-request>
+        </div>
+      </div>
+    </div>
+
+      <!-- <div class="col-md-4 glance-col">
+        <div class="glance-box">
+          <div class="glance-github-title">
+            Jira issues: {{org.name}} <span class="pull-right glance-github-pulls-total">{{}}</span>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</div>

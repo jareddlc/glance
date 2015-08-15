@@ -1,0 +1,22 @@
+[Unit]
+Description=Glance
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+User=core
+
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill glance
+ExecStartPre=-/usr/bin/docker rm glance
+ExecStartPre=/usr/bin/docker pull yodlr/glance:latest
+ExecStart=/usr/bin/docker run --name glance \
+      -p 3000:3000 \
+      -e GITHUB_ORG_NAME= \
+      -e GITHUB_AUTH_TOKEN= \
+      yodlr/glance:latest
+ExecStop=/usr/bin/docker stop glance
+
+[X-Fleet]
+Global=true
