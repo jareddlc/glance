@@ -4,7 +4,7 @@
       <div class="glance-box">
         <div class="clearfix glance-title-container">
           <div class="pull-right glance-title-number"> {{reposFromOrgList.length}} </div>
-          <div class="glance-title"> Repositories: myName </div>
+          <div class="glance-title"> Repositories: {{org.name}} </div>
         </div>
       </div>
     </div>
@@ -13,7 +13,7 @@
       <div class="glance-box">
         <div class="clearfix glance-title-container">
           <div class="pull-right glance-title-number"> {{pullRequestsFromOrgList.length}} </div>
-          <div class="glance-title"> Pull Requests: myName </div>
+          <div class="glance-title"> Pull Requests: {{org.name}} </div>
         </div>
         <div ng-repeat="pr in pullRequestsFromOrgList">
           <pull-request pr="pr"></pull-request>
